@@ -2,9 +2,8 @@ import React, { FC, useEffect, useState } from 'react';
 
 import './App.css';
 
-import { Box } from '@mui/material';
-
 import { getData } from './api/getData';
+import { CoinsList } from './components/coins-list';
 import { CryptoCurrencyRaw } from './interfaces/CryptoCurrency';
 
 export const App: FC = () => {
@@ -15,12 +14,5 @@ export const App: FC = () => {
   // eslint-disable-next-line no-console
   console.log('data', cryptoCurrencyList);
 
-  return (
-    <Box>
-      <Box>1</Box>
-      <Box>2</Box>
-      <Box>3</Box>
-      <Box>4</Box>
-    </Box>
-  );
+  return <CoinsList coins={cryptoCurrencyList} changeKey="percent_change_24h" />;
 };
