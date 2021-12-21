@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
 import { Box } from '@mui/material';
 
@@ -13,16 +13,23 @@ interface Props {
 const MAX_SIZE = 500;
 
 export const CoinsList: FC<Props> = ({ coins, changeKey }) => {
-  const SIZE_KOEF = MAX_SIZE / coins[0]?.quote.USD.fully_diluted_market_cap;
+  const [list, setList] = useState(coins);
+
+  const SIZE_KOEF = MAX_SIZE / list[0]?.quote.USD.fully_diluted_market_cap;
+
+  const handleRemoveCoin = (coin: CryptoCurrencyRaw) => {
+    setList(list.filter(({ id }) => id !== coin.id));
+  };
 
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-      {coins.map(coin => (
+      {list.map(coin => (
         <CoinItem
           key={coin.id}
           coin={coin}
           size={Math.round(coin.quote.USD.fully_diluted_market_cap * SIZE_KOEF)}
           changeKey={changeKey}
+          onRemove={() => handleRemoveCoin(coin)}
         />
       ))}
     </Box>
