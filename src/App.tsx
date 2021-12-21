@@ -1,20 +1,26 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
-import logo from './logo.svg';
 import './App.css';
 
+import { Box } from '@mui/material';
+
+import { getData } from './api/getData';
+import { CryptoCurrencyRaw } from './interfaces/CryptoCurrency';
+
 export const App: FC = () => {
+  const [cryptoCurrencyList, setCryptoCurrencyList] = useState<CryptoCurrencyRaw[]>([]);
+  useEffect(() => {
+    void getData().then(setCryptoCurrencyList);
+  }, []);
+  // eslint-disable-next-line no-console
+  console.log('data', cryptoCurrencyList);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <Box>1</Box>
+      <Box>2</Box>
+      <Box>3</Box>
+      <Box>4</Box>
+    </Box>
   );
 };
