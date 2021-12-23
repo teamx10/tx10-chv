@@ -1,7 +1,7 @@
 import MuiAppBar from '@mui/material/AppBar';
 import { styled } from '@mui/material/styles';
 
-import { drawerWidth } from './drawer';
+import { DRAWER_WIDTH } from './drawer';
 
 export const AppBar = styled(MuiAppBar, {
   shouldForwardProp: prop => prop !== 'open'
@@ -13,8 +13,8 @@ export const AppBar = styled(MuiAppBar, {
     duration: theme.transitions.duration.leavingScreen
   }),
   ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: DRAWER_WIDTH,
+    width: `calc(100% - ${DRAWER_WIDTH}px)`,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen
