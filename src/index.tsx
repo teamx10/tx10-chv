@@ -11,13 +11,13 @@ import '@fontsource/roboto/700.css';
 
 import './index.css';
 
-import { AppRouting } from './App.routing';
+import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 
 render(
   <StrictMode>
     <CssBaseline />
-    <AppRouting />
+    <App />
   </StrictMode>,
   document.getElementById('root')
 );

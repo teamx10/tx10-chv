@@ -12,6 +12,7 @@ import { useTheme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
+import { useTitle } from '../../hooks/useTitle';
 import { AppBar } from './components/app-bar';
 import { AppMenu } from './components/app-menu';
 import { Drawer } from './components/drawer';
@@ -23,6 +24,8 @@ interface Props {
 
 export const PageUi: FC<Props> = ({ children }) => {
   const theme = useTheme();
+  const { title } = useTitle();
+
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -52,7 +55,7 @@ export const PageUi: FC<Props> = ({ children }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+            {title}
           </Typography>
         </Toolbar>
       </AppBar>
