@@ -1,22 +1,15 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 
 import './App.css';
 
-import { getData } from './api/getData';
+import { useCoinMarketCapCoins } from '@hooks/useCoinMarketCapCoins';
+
 import { CoinsList } from './components/coins-list';
-import { CryptoCurrencyRaw } from './interfaces/CryptoCurrency';
 
 export const App: FC = () => {
-  const [cryptoCurrencyList, setCryptoCurrencyList] = useState<CryptoCurrencyRaw[] | null>(null);
-  useEffect(() => {
-    void getData().then(setCryptoCurrencyList);
-  }, []);
+  const { coins } = useCoinMarketCapCoins();
   // eslint-disable-next-line no-console
-  console.log('data', cryptoCurrencyList);
+  console.log('coins', coins);
 
-  return cryptoCurrencyList ? (
-    <CoinsList coins={cryptoCurrencyList} changeKey="percent_change_24h" />
-  ) : (
-    <div>Loading...</div>
-  );
+  return coins ? <CoinsList coins={coins} changeKey="percent_change_24h" /> : <div>Loading...</div>;
 };

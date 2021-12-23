@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-import { CryptoCurrencyRaw } from '../interfaces/CryptoCurrency';
+import { CryptoCurrencyRaw } from '../../interfaces/CryptoCurrency';
 
-export const getData = async (): Promise<CryptoCurrencyRaw[]> => {
+export const getCoinMarketCapCoins = async (): Promise<CryptoCurrencyRaw[]> => {
   try {
     const res = await axios.get('/data/listing.json');
 
