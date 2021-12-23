@@ -11,44 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "noEmit": true,
-    "paths": {
-      "@components/*": [
-        "components/*"
-      ],
-      "@containers/*": [
-        "containers/*"
-      ],
-      "@content/*": [
-        "content/*"
-      ],
-      "@layouts/*": [
-        "layouts/*"
-      ],
-      "@styles/*": [
-        "styles/*"
-      ],
-      "@utils/*": [
-        "utils/*"
-      ],
-      "@hooks/*": [
-        "hooks/*"
-      ],
-      "@providers/*": [
-        "providers/*"
-      ],
-      "@icons/*": [
-        "../public/svg/*"
-      ],
-      "@images/*": [
-        "../public/images/*"
-      ],
-      "@client": [
-        "client.tsx"
-      ],
-      "@graphql": [
-        "graphql.ts"
-      ]
-    },
+    "paths": {},
     "lib": [
       "dom",
       "dom.iterable",
